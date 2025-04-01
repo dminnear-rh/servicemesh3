@@ -7,7 +7,7 @@ clusterGroup:
     - ztunnel
     - bookinfo:
         labels:
-          - istio.io/dataplane-mode: ambient
+          istio.io/dataplane-mode: ambient
 
   subscriptions:
     servicemesh:
