@@ -1,0 +1,34 @@
+clusterGroup:
+  name: hub
+
+  namespaces:
+    - istio-system
+    - istio-cni
+    - ztunnel
+    - bookinfo:
+        labels:
+          - istio.io/dataplane-mode: ambient
+
+  subscriptions:
+    servicemesh:
+      name: servicemeshoperator3
+
+    kiali:
+      name: kiali-ossm
+
+  projects:
+    - servicemesh
+    - bookinfo
+
+  applications:
+    ambient-servicemesh:
+      name: ambient-servicemesh
+      namespace: istio-system
+      project: servicemesh
+      path: ambient-servicemesh-chart
+
+    bookinfo:
+      name: bookinfo
+      namespace: bookinfo
+      project: bookinfo
+      path: bookinfo-chart
