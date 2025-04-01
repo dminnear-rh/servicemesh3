@@ -25,10 +25,10 @@ clusterGroup:
       name: ambient-servicemesh
       namespace: istio-system
       project: servicemesh
-      path: ambient-servicemesh-chart
+      path: ambient-servicemesh
 
     bookinfo:
       name: bookinfo
       namespace: bookinfo
       project: bookinfo
-      path: bookinfo-chart
+      path: bookinfo
