@@ -43,5 +43,5 @@ spec:
       action: replace
       targetLabel: namespace
     - action: replace
-      replacement: default
+      replacement: cluster.local
       targetLabel: mesh_id
