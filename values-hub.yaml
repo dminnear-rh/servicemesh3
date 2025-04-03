@@ -5,6 +5,13 @@ clusterGroup:
     - istio-system
     - istio-cni
     - ztunnel
+    # - tempo
+    # - openshift-tempo-operator:
+    #     operatorGroup: true
+    #     targetNamespaces:
+    # - openshift-opentelemetry-operator:
+    #     operatorGroup: true
+    #     targetNamespaces:
     - bookinfo:
         labels:
           istio.io/dataplane-mode: ambient
@@ -16,9 +23,18 @@ clusterGroup:
     kiali:
       name: kiali-ossm
 
+    # tempo:
+    #   name: tempo-product
+    #   namespace: openshift-tempo-operator
+
+    # opentelemetry:
+    #   name: opentelemetry-product
+    #   namespace: openshift-opentelemetry-operator
+
   projects:
     - servicemesh
     - bookinfo
+    # - distributed-tracing
 
   applications:
     ambient-servicemesh:
