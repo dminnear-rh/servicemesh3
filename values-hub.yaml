@@ -52,8 +52,8 @@ clusterGroup:
 
     distributed-tracing:
       name: distributed-tracing
-      namespace: istio-system
-      project: tempo
+      namespace: tempo
+      project: distributed-tracing
       path: distributed-tracing
 
     bookinfo:
