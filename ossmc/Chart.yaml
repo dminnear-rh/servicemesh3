@@ -1,0 +1,4 @@
+apiVersion: v2
+description: A Helm chart to set up the OpenShift Service Mesh Console (Kiali)
+name: ossmc
+version: 0.0.1
