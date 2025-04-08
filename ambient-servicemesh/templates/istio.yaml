@@ -15,4 +15,4 @@ spec:
       - name: otel
         opentelemetry:
           port: 4317
-          service: otel-collector
+          service: otel-collector.ztunnel
