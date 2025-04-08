@@ -4,7 +4,6 @@ clusterGroup:
   namespaces:
     - istio-system
     - istio-cni
-    - ztunnel
     - tempo
     - openshift-tempo-operator:
         operatorGroup: true
@@ -14,7 +13,8 @@ clusterGroup:
         targetNamespaces:
     - bookinfo:
         labels:
-          istio.io/dataplane-mode: ambient
+          istio-discovery: enabled
+          istio.io/rev: default
     - openshift-cluster-observability-operator:
         operatorGroup: true
         targetNamespaces:
@@ -45,11 +45,11 @@ clusterGroup:
     - distributed-tracing
 
   applications:
-    ambient-servicemesh:
-      name: ambient-servicemesh
+    servicemesh:
+      name: servicemesh
       namespace: istio-system
       project: servicemesh
-      path: ambient-servicemesh
+      path: servicemesh
 
     ossmc:
       name: ossmc

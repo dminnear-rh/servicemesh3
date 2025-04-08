@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: istio-proxies-monitor
-  namespace: ztunnel
+  namespace: istio-system
 spec:
   selector:
     matchExpressions:

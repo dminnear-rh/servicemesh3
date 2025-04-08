@@ -5,14 +5,14 @@ metadata:
 spec:
   version: v1.24.3
   namespace: istio-system
-  profile: ambient
   values:
-    pilot:
-      trustedZtunnelNamespace: "ztunnel"
     meshConfig:
       enableTracing: true
       extensionProviders:
       - name: otel
         opentelemetry:
           port: 4317
-          service: otel-collector.ztunnel
+          service: otel-collector.istio-system.svc.cluster.local
+      discoverySelectors:
+        - matchLabels:
+            istio-discovery: enabled
