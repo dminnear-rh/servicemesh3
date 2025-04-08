@@ -15,6 +15,9 @@ clusterGroup:
     - bookinfo:
         labels:
           istio.io/dataplane-mode: ambient
+    - openshift-cluster-observability-operator:
+        operatorGroup: true
+        targetNamespaces:
 
   subscriptions:
     servicemesh:
@@ -30,6 +33,10 @@ clusterGroup:
     opentelemetry:
       name: opentelemetry-product
       namespace: openshift-opentelemetry-operator
+
+    cluster-observability:
+      name: cluster-observability-operator
+      namespace: openshift-cluster-observability-operator
 
   projects:
     - servicemesh
