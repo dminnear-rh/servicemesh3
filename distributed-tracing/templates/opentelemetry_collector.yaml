@@ -24,7 +24,7 @@ spec:
     processors:
 
     exporters:
-      logging:
+      debug:
       otlp:
         endpoint: tempo-simplest-gateway.observability.svc.cluster.local:8090
         tls:
@@ -40,7 +40,7 @@ spec:
       pipelines:
         traces:
           receivers: [otlp, jaeger]
-          exporters: [otlp, logging]
+          exporters: [otlp, debug]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
