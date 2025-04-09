@@ -2,7 +2,7 @@ apiVersion: telemetry.istio.io/v1
 kind: Telemetry
 metadata:
   name: otel-demo
-  namespace: tempo
+  namespace: istio-system
 spec:
   tracing:
     - providers:
