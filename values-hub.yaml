@@ -18,6 +18,8 @@ clusterGroup:
           istio-discovery: enabled
           istio.io/rev: default
     - openshift-cluster-observability-operator:
+        labels:
+          openshift.io/cluster-monitoring: true
         operatorGroup: true
         targetNamespaces:
 
