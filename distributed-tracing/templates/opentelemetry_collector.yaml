@@ -5,42 +5,51 @@ metadata:
   namespace: tempo
 spec:
   config: |
-    extensions:
-      bearertokenauth:
-        filename: "/var/run/secrets/kubernetes.io/serviceaccount/token"
-
     receivers:
+      jaeger:
+        protocols:
+          grpc:
+            endpoint: 0.0.0.0:14250
+          thrift_binary:
+            endpoint: 0.0.0.0:6832
+          thrift_compact:
+            endpoint: 0.0.0.0:6831
+          thrift_http:
+            endpoint: 0.0.0.0:14268
       otlp:
         protocols:
           grpc:
+            endpoint: 0.0.0.0:4317
           http:
-      jaeger:
-        protocols:
-          thrift_binary:
-          thrift_compact:
-          thrift_http:
-          grpc:
-
-    processors:
-
+            endpoint: 0.0.0.0:4318
     exporters:
       debug:
       otlp:
-        endpoint: tempo-simplest-gateway.tempo.svc.cluster.local:8090
-        tls:
-          insecure: false
-          ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt"
         auth:
           authenticator: bearertokenauth
+        endpoint: tempo-simplest-gateway.tempo.svc.cluster.local:8090
         headers:
-          X-Scope-OrgID: "dev"
-
+          X-Scope-OrgID: dev
+        tls:
+          ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt"
+          insecure: false
+    extensions:
+      bearertokenauth:
+        filename: "/var/run/secrets/kubernetes.io/serviceaccount/token"
     service:
-      extensions: [bearertokenauth]
+      extensions:
+        - bearertokenauth
+      telemetry:
+        metrics:
+          address: 0.0.0.0:8888
       pipelines:
         traces:
-          receivers: [otlp, jaeger]
-          exporters: [otlp, debug]
+          exporters:
+            - otlp
+            - debug
+          receivers:
+            - otlp
+            - jaeger
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
