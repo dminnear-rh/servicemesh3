@@ -1,7 +1,7 @@
 apiVersion: tempo.grafana.com/v1alpha1
 kind: TempoStack
 metadata:
-  name: smm
+  name: sample
   namespace: tempo
 spec:
   storageSize: 1Gi
