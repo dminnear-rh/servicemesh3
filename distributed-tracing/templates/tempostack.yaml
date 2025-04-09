@@ -17,6 +17,8 @@ spec:
   tenants:
     mode: openshift
   template:
+    gateway:
+      enabled: true
     queryFrontend:
       jaegerQuery:
         enabled: true
