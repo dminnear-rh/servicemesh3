@@ -13,6 +13,9 @@ spec:
         opentelemetry:
           port: 4317
           service: dev-collector.tempo.svc.cluster.local
+      defaultProviders:
+        tracing:
+          - otel
       discoverySelectors:
         - matchLabels:
             istio-discovery: enabled
