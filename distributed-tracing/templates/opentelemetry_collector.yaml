@@ -26,7 +26,7 @@ spec:
     exporters:
       debug:
       otlp:
-        endpoint: tempo-simplest-gateway.observability.svc.cluster.local:8090
+        endpoint: tempo-simplest-gateway.tempo.svc.cluster.local:8090
         tls:
           insecure: false
           ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt"
@@ -67,4 +67,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: dev-collector
-    namespace: observability
+    namespace: tempo
