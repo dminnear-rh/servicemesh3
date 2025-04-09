@@ -1,7 +1,7 @@
 apiVersion: telemetry.istio.io/v1
 kind: Telemetry
 metadata:
-  name: otel-demo
+  name: default
   namespace: istio-system
 spec:
   tracing:
