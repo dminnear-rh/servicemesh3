@@ -6,5 +6,5 @@ metadata:
 spec:
   tracing:
     - providers:
-      - name: otel
+        - name: otel
       randomSamplingPercentage: 100
