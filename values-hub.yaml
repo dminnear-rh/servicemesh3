@@ -4,7 +4,9 @@ clusterGroup:
   namespaces:
     - istio-system
     - istio-cni
-    - tempo
+    - tempo:
+        labels:
+          istio-discovery: enabled
     - openshift-tempo-operator:
         labels:
           openshift.io/cluster-monitoring: true
