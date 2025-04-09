@@ -12,7 +12,7 @@ spec:
       - name: otel
         opentelemetry:
           port: 4317
-          service: otel-collector.istio-system.svc.cluster.local
+          service: dev-collector.tempo.svc.cluster.local
       discoverySelectors:
         - matchLabels:
             istio-discovery: enabled
