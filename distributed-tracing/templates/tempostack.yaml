@@ -19,4 +19,6 @@ spec:
       jaegerQuery:
         enabled: true
         ingress:
+          route:
+            termination: edge
           type: route
