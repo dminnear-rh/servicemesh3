@@ -14,6 +14,8 @@ spec:
       limits:
         memory: 2Gi
         cpu: "2"
+  tenants:
+    mode: openshift
   template:
     queryFrontend:
       jaegerQuery:
