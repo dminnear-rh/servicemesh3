@@ -23,7 +23,7 @@ spec:
           http:
             endpoint: 0.0.0.0:4318
     exporters:
-      debug:
+      debug: null
       otlp:
         auth:
           authenticator: bearertokenauth
@@ -31,11 +31,11 @@ spec:
         headers:
           X-Scope-OrgID: dev
         tls:
-          ca_file: "/var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt"
+          ca_file: /var/run/secrets/kubernetes.io/serviceaccount/service-ca.crt
           insecure: false
     extensions:
       bearertokenauth:
-        filename: "/var/run/secrets/kubernetes.io/serviceaccount/token"
+        filename: /var/run/secrets/kubernetes.io/serviceaccount/token
     service:
       extensions:
         - bearertokenauth
